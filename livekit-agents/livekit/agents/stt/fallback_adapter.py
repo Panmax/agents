@@ -295,6 +295,7 @@ class FallbackRecognizeStream(RecognizeStream):
 
         for i, stt in enumerate(self._fallback_adapter._stt_instances):
             stt_status = self._fallback_adapter._status[i]
+            self._stt = stt
             if stt_status.available or all_failed:
                 try:
                     main_stream = stt.stream(

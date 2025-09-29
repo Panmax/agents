@@ -225,6 +225,7 @@ class FallbackLLMStream(LLMStream):
 
         for i, llm in enumerate(self._fallback_adapter._llm_instances):
             llm_status = self._fallback_adapter._status[i]
+            self._llm = llm
             if llm_status.available or all_failed:
                 text_sent: str = ""
                 tool_calls_sent: list[str] = []

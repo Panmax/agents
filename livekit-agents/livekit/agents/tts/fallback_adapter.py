@@ -211,6 +211,7 @@ class FallbackChunkedStream(ChunkedStream):
 
         for i, tts in enumerate(self._tts._tts_instances):
             tts_status = self._tts._status[i]
+            self._tts = tts
             if tts_status.available or all_failed:
                 try:
                     resampler = tts_status.resampler
